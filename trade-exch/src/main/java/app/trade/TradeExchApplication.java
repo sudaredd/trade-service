@@ -1,16 +1,18 @@
 package app.trade;
 
-import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+
 
 @SpringBootApplication
 public class TradeExchApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TradeExchApplication.class, args);
+//        SpringApplication.run(TradeExchApplication.class, args);
+        new SpringApplicationBuilder()
+                .sources(TradeExchApplication.class)
+                .web(WebApplicationType.NONE).build().run(args);
     }
 
 }
