@@ -1,19 +1,47 @@
 package app.trade.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @ToString
 @Builder
+@XmlRootElement(name = "NewTrade")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Trade {
+    @XmlElement(name = "TradeId")
     private String tradeId;
-    private String accout;
+    
+    @XmlElement(name="TradingAccount")
+    private String account;
+    
+    @XmlElement(name = "Trader")
+    private String trader;
+    
+    @XmlElement(name = "Quantity")
     private int quantity;
+    
+    @XmlElement(name = "Price")
     private double price;
+    
+    @XmlElement(name = "Side")
     private String side;
+    
+    @XmlElement(name = "Symbol")
     private String symbol;
+    
+    @XmlElement(name = "SettlementDate")
+    private String settleDate;
+    
+    @XmlElement(name = "TradeDate")
+    private String tradeDate;
+    
+    @XmlElement(name = "TradeTime")
+    private String tradeTime;
 }
