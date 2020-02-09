@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
+@Getter @Setter
 @ToString
 @Builder
 @XmlRootElement(name = "NewTrade")
@@ -22,7 +22,13 @@ public class Trade {
     private String account;
     
     @XmlElement(name = "Trader")
-    private String trader;
+    private String trader;   
+    
+    @XmlElement(name = "TradingAccount")
+    private String tradingAccount; 
+    
+    @XmlElement(name = "counterParty")
+    private String counterParty;
     
     @XmlElement(name = "Quantity")
     private int quantity;
