@@ -2,7 +2,7 @@
 
 To build this project, download trade-service and import pom.xml from trade-service-build
 
-This project is imalemented with various microservices, all are communicated with Kafka, Spring cloud, Eureka server and client.
+This project is implemented with various microservices, all are communicated with Kafka, Spring cloud, Eureka server and client.
 
 1) trade-exch generaes fix message and drop to Kafka
 2) trade-processor subscribe to Kafka and call eureka client microservices (trading-account-service, counterparty-service, 
