@@ -75,7 +75,7 @@ public class TradeTransformer {
         for (FixTags tag : FixTags.values()) {
             switch (tag) {
                 case CUSIP:
-                    tradeBuilder.symbol(val(fixMap, tag));
+                    tradeBuilder.cusip(val(fixMap, tag));
                     break;
                 case PRICE:
                     tradeBuilder.price(Double.parseDouble(val(fixMap, tag)));
