@@ -22,6 +22,10 @@
         <module>../trade-exch</module>
         <module>../trade-processor</module>
         <module>../trade-eureka-server</module>
+        <module>../counterparty-service</module>
+        <module>../product-service</module>
+        <module>../financial-product-service</module>
+        <module>../trading-account-service</module>
     </modules>
 
 	<build>
