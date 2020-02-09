@@ -36,8 +36,14 @@ public class Trade {
     @XmlElement(name = "Price")
     private double price;
     
+    @XmlElement(name = "accruedInterest")
+    private double accruedInterest;
+    
     @XmlElement(name = "Side")
     private String side;
+    
+    @XmlElement(name = "cusip")
+    private String cusip;
     
     @XmlElement(name = "Symbol")
     private String symbol;

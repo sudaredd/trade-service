@@ -25,7 +25,7 @@ public class TradeProcessorListener {
     public void onMessage(@Payload String str) {
         log.info("in stream subscriber :"+str);
         Trade trade = tradeTransformer.trade(str);
-        enrichmentServices.forEach(a->a.process(trade));
+        enrichmentServices.parallelStream().forEach(a->a.process(trade));
 
         String output = tradeTransformer.convertToNewTrade(trade);
         log.info("out going message:"+output);
