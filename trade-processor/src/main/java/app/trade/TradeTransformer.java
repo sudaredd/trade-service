@@ -4,6 +4,7 @@ import app.trade.model.Trade;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -37,22 +38,18 @@ enum FixTags {
 @Slf4j
 @Component
 public class TradeTransformer {
-
+    
     private JAXBContext jaxbContext;
     private Marshaller marshaller;
 
-    {
+    @PostConstruct
+    public void init() {
         try {
             jaxbContext = JAXBContext.newInstance(Trade.class);
             marshaller = jaxbContext.createMarshaller();
         } catch (JAXBException e) {
-            e.printStackTrace();
+            log.error("Error occured while creating jaxbcontext", e);
         }
-    }
-
-
-    public TradeTransformer() {
-
     }
 
     public Trade trade(String fix) {
