@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class TradeUtil {
     private static List<String> traders = new ArrayList<String>(Arrays.asList("sudark", "davidb", "abdoa", "innag"));
-    private static List<String> cusips = new ArrayList<String>(Arrays.asList("9128284J6", "9128284P2", "9128284L1", "9128284M9", "9128284N7"));
+    private static List<String> cusips = new ArrayList<String>(Arrays.asList("9128294J6", "9128284P2", "9128284L1", "9128284M9", "9128284N7"));
     private static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMMdd");
     private static AtomicLong tradeSeqIdGenerrator = new AtomicLong(1000);
 
