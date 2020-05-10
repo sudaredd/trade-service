@@ -56,4 +56,6 @@ public class Trade {
     
     @XmlElement(name = "TradeTime")
     private String tradeTime;
+
+    private String uniqueId;
 }

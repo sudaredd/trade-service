@@ -4,6 +4,8 @@ import app.trade.model.Product;
 import app.trade.model.Trade;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,8 +19,8 @@ public class ProductEnrichmentService implements EnrichmentService {
     @Override
     public void process(Trade trade) {
         log.info("Product Enrichment");
-
-        Product product = restTemplate.getForObject("http://product-service/product/" + trade.getCusip(), Product.class);
+        HttpEntity<String> entity = getStringHttpEntity(trade);
+        Product product = restTemplate.exchange("http://product-service/product/" + trade.getCusip(),HttpMethod.GET, entity, Product.class).getBody();
         log.info("got a product :" + product);
         trade.setSymbol(product.getSymbol());
     }

@@ -29,6 +29,7 @@ public class TradeProcessorListener {
         String uniqueId = (String) headers.get("UNIQUE_ID");
         log.info("in stream subscriber :"+str);
         Trade trade = tradeTransformer.trade(str);
+        trade.setUniqueId(uniqueId);
         enrichmentServices.parallelStream().forEach(a->a.process(trade));
 
         String output = tradeTransformer.convertToNewTrade(trade);
