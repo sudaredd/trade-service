@@ -1,6 +1,7 @@
 package app.trade.productService;
 
 import app.trade.model.Product;
+import app.trade.service.AbstractProcessor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 @Slf4j
-public class ProductService {
+public class ProductService extends AbstractProcessor {
 
     private Map<String , Product> productsCache  = new ConcurrentHashMap<>();
     private Product dummyProduct = new Product();

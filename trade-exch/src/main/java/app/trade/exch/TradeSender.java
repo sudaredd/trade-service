@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.MimeTypeUtils;
 import reactor.core.scheduler.Schedulers;
 
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 @Component
@@ -22,7 +23,7 @@ public class TradeSender implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         log.info("writing to Kakfa with scheduler");
-        Schedulers.newSingle("TradeSender").schedulePeriodically(() -> sendMsg(), 3, 1, TimeUnit.SECONDS);
+        Schedulers.newSingle("TradeSender").schedulePeriodically(() -> sendMsg(), 3, 5, TimeUnit.SECONDS);
     }
 
     private void sendMsg() {
@@ -30,6 +31,7 @@ public class TradeSender implements CommandLineRunner {
         messageChannel.send(MessageBuilder.
                 withPayload(TradeUtil.tradeMessage()).
                 setHeader(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.TEXT_PLAIN).
+                setHeader("UNIQUE_ID", UUID.randomUUID().toString()).
                 build(), 1);
     }
 
