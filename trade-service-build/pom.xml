@@ -10,7 +10,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>1.14</java.version>
 	</properties>
 	<modules>
         <module>../trade-exch</module>
